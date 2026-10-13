@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek Vishwakarma | Senior DevOps & Cloud Infrastructure Engineer</title>
+  <meta name="description" content="Portfolio of Vivek Vishwakarma - Senior DevOps, Multi-Cloud (Azure & AWS), Kubernetes, IaC Terraform, and Enterprise DevSecOps Engineer.">
+  <meta name="keywords" content="DevOps Engineer, Cloud Architect, Vivek Vishwakarma, Terraform, Kubernetes, Azure, AWS, DevSecOps, Checkmarx, Datadog">
+  <meta name="author" content="Vivek Vishwakarma">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+  <div class="grid-background"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-symbol">&lt;VV/&gt;</span>
+        <span class="logo-text">Vivek<span class="accent-text">.devops</span></span>
+      </a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> About</a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group"></i> Skills</a>
+        <a href="#devsecops" class="nav-link"><i class="fa-solid fa-shield-halved"></i> DevSecOps</a>
+        <a href="#projects" class="nav-link"><i class="fa-solid fa-cubes-stacked"></i> Projects</a>
+        <a href="#terminal" class="nav-link"><i class="fa-solid fa-terminal"></i> Terminal</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" rel="noopener" class="btn-icon" title="LinkedIn Profile">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener" class="btn-icon" title="GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">Hire Me <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <!-- Hero Text -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for Senior DevOps & Cloud Architecture Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            Architecting <span class="gradient-text">Zero-Trust Cloud</span> & Resilient Microservices
+          </h1>
+
+          <div class="typewriter-container">
+            <span class="prompt-symbol">$</span>
+            <span class="typewriter" id="typewriter"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+
+          <p class="hero-description">
+            Hi, I'm <strong>Vivek Vishwakarma</strong>. I specialize in designing and scaling multi-cloud enterprise infrastructure (Azure & AWS), orchestrating production Kubernetes (AKS/EKS), automating high-velocity CI/CD pipelines, and embedding automated security gates (SAST, SCA, Container Hardening) directly into developer workflows.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-rocket"></i> Explore Projects
+            </a>
+            <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+            </a>
+            <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener" class="btn btn-glass">
+              <i class="fa-brands fa-github"></i> GitHub Profile
+            </a>
+          </div>
+
+          <!-- Hero Metrics Bar -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-number">99.99%</span>
+              <span class="metric-label">Uptime SLAs</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">10x</span>
+              <span class="metric-label">Deployment Velocity</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">100%</span>
+              <span class="metric-label">IaC Automated (Terraform)</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">Zero-Trust</span>
+              <span class="metric-label">Security Posture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Profile Card -->
+        <div class="hero-visual">
+          <div class="profile-card-wrapper">
+            <div class="profile-card-glow"></div>
+            <div class="profile-card">
+              <div class="profile-img-container">
+                <img src="assets/profile.jpg" alt="Vivek Vishwakarma - Senior DevOps & Cloud Engineer" class="profile-img" id="profileImage">
+                <div class="profile-gradient-overlay"></div>
+              </div>
+              
+              <div class="profile-badge badge-top-right">
+                <i class="fa-brands fa-microsoft text-azure"></i>
+                <div>
+                  <strong>Azure & AWS</strong>
+                  <span>Multi-Cloud Architect</span>
+                </div>
+              </div>
+
+              <div class="profile-badge badge-bottom-left">
+                <i class="fa-solid fa-dharmachakra text-k8s"></i>
+                <div>
+                  <strong>Kubernetes AKS/EKS</strong>
+                  <span>Cloud-Native Scaling</span>
+                </div>
+              </div>
+
+              <div class="profile-badge badge-bottom-right">
+                <i class="fa-solid fa-shield-halved text-shield"></i>
+                <div>
+                  <strong>DevSecOps</strong>
+                  <span>Checkmarx & Trivy Hardened</span>
+                </div>
+              </div>
+
+              <div class="profile-footer-tag">
+                <span class="tag-name">Vivek Vishwakarma</span>
+                <span class="tag-role">Sr. Cloud & DevOps Architect</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-id-badge"></i> About Vivek</span>
+          <h2 class="section-title">Bridging Code, Cloud Infrastructure & Ironclad Security</h2>
+          <p class="section-subtitle">
+            Focused on building reproducible, highly automated, and cost-optimized cloud environments with zero manual intervention.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glass-panel">
+            <div class="about-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Multi-Cloud Architecture</h3>
+            <p>
+              Designing production landing zones across Azure and AWS. Deep expertise in Virtual Networks, Private Link, Hub-Spoke topology, Transit Gateways, NAT Gateways, and high-availability multi-region resiliency.
+            </p>
+            <div class="tech-tags">
+              <span>Azure Landing Zones</span>
+              <span>AWS VPC</span>
+              <span>Private Endpoints</span>
+              <span>VNet Peering</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon"><i class="fa-solid fa-code-merge"></i></div>
+            <h3>Infrastructure as Code (IaC)</h3>
+            <p>
+              100% declarative infrastructure using modular Terraform & OpenTofu. Remote state locking, automated plan validation, drift detection, and strict branch protection with GitOps workflows.
+            </p>
+            <div class="tech-tags">
+              <span>Terraform (90%)</span>
+              <span>YAML (90%)</span>
+              <span>Terragrunt</span>
+              <span>Checkov</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <h3>Automated DevSecOps</h3>
+            <p>
+              Shift-left security culture. Integrating Checkmarx SAST, Black Duck SCA, Aqua Security, and Trivy directly into CI/CD pipelines to block vulnerabilities before reaching production clusters.
+            </p>
+            <div class="tech-tags">
+              <span>Checkmarx</span>
+              <span>Black Duck</span>
+              <span>Aqua / Trivy</span>
+              <span>SonarQube</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Observability & SRE</h3>
+            <p>
+              Full-stack instrumentation using Datadog, Prometheus, Grafana, and Azure Log Analytics. Establishing SLOs/SLIs, synthetic monitors, alert policies, and real-time distributed tracing.
+            </p>
+            <div class="tech-tags">
+              <span>Datadog APM</span>
+              <span>Prometheus</span>
+              <span>Grafana</span>
+              <span>Azure Monitor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE TECHNICAL MATRIX & SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-microchip"></i> Technical Proficiency</span>
+          <h2 class="section-title">Enterprise Tech Stack & Tooling</h2>
+          <p class="section-subtitle">
+            Battle-tested technologies powering high-concurrency microservices and critical cloud platforms.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Category 1 -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <i class="fa-solid fa-cubes text-accent"></i>
+              <h3>Cloud & IaC</h3>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Terraform / HCL</span>
+                <span class="percent">90%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Microsoft Azure (AKS, VNet, Key Vault)</span>
+                <span class="percent">92%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Amazon Web Services (EKS, VPC, IAM)</span>
+                <span class="percent">85%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-chips">
+              <span class="chip"><i class="fa-brands fa-microsoft"></i> Azure</span>
+              <span class="chip"><i class="fa-brands fa-aws"></i> AWS</span>
+              <span class="chip">Terraform</span>
+              <span class="chip">Hub-Spoke</span>
+              <span class="chip">Key Vault</span>
+              <span class="chip">VPN Gateway</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 2 -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <i class="fa-solid fa-dharmachakra text-accent"></i>
+              <h3>Containers & Orchestration</h3>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Kubernetes (AKS / EKS Architecture)</span>
+                <span class="percent">90%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Docker & Containerd Engine</span>
+                <span class="percent">88%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Helm 3 & Kustomize Templating</span>
+                <span class="percent">85%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-chips">
+              <span class="chip"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="chip">Kubernetes</span>
+              <span class="chip">Helm 3</span>
+              <span class="chip">Ingress NGINX</span>
+              <span class="chip">Calico CNI</span>
+              <span class="chip">ACR / ECR</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 3 -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <i class="fa-solid fa-code text-accent"></i>
+              <h3>Scripting & Automation</h3>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>YAML Pipelines & Manifests</span>
+                <span class="percent">90%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Linux Shell & Bash Scripting</span>
+                <span class="percent">70%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>PowerShell Automation</span>
+                <span class="percent">65%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 65%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Python for Cloud Automation</span>
+                <span class="percent">60%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 60%;"></div></div>
+            </div>
+            <div class="skill-chips">
+              <span class="chip">YAML (90%)</span>
+              <span class="chip">Bash (70%)</span>
+              <span class="chip">PowerShell (65%)</span>
+              <span class="chip">Python (60%)</span>
+              <span class="chip">Git / GitHub</span>
+            </div>
+          </div>
+
+          <!-- Skill Category 4 -->
+          <div class="skill-category-card glass-panel">
+            <div class="category-header">
+              <i class="fa-solid fa-shield-cat text-accent"></i>
+              <h3>DevSecOps & Observability</h3>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Checkmarx (SAST) & Black Duck (SCA)</span>
+                <span class="percent">88%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Aqua Security & Trivy Container Scan</span>
+                <span class="percent">86%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 86%;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info">
+                <span>Datadog APM & Prometheus/Grafana</span>
+                <span class="percent">85%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-chips">
+              <span class="chip">Checkmarx</span>
+              <span class="chip">Black Duck</span>
+              <span class="chip">Aqua Trivy</span>
+              <span class="chip">SonarQube</span>
+              <span class="chip">Datadog</span>
+              <span class="chip">Azure Monitor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEVSECOPS PIPELINE VISUALIZER -->
+    <section class="section devsecops-section" id="devsecops">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-shield-halved"></i> Security by Design</span>
+          <h2 class="section-title">Automated DevSecOps Pipeline Fabric</h2>
+          <p class="section-subtitle">
+            Zero-Trust architecture integrated into every phase of the continuous delivery lifecycle. Click any stage to inspect the security gates.
+          </p>
+        </div>
+
+        <div class="pipeline-wrapper glass-panel">
+          <div class="pipeline-track">
+            <!-- Stage 1 -->
+            <div class="pipeline-stage active" data-stage="code">
+              <div class="stage-step">01</div>
+              <div class="stage-icon"><i class="fa-brands fa-git-alt"></i></div>
+              <div class="stage-name">Commit & Lint</div>
+              <div class="stage-tool">Pre-commit / Git</div>
+            </div>
+
+            <div class="pipeline-connector"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Stage 2 -->
+            <div class="pipeline-stage" data-stage="sast">
+              <div class="stage-step">02</div>
+              <div class="stage-icon"><i class="fa-solid fa-code-compare"></i></div>
+              <div class="stage-name">SAST & SCA</div>
+              <div class="stage-tool">Checkmarx / Black Duck</div>
+            </div>
+
+            <div class="pipeline-connector"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Stage 3 -->
+            <div class="pipeline-stage" data-stage="container">
+              <div class="stage-step">03</div>
+              <div class="stage-icon"><i class="fa-brands fa-docker"></i></div>
+              <div class="stage-name">Image Hardening</div>
+              <div class="stage-tool">Trivy / Aqua Security</div>
+            </div>
+
+            <div class="pipeline-connector"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Stage 4 -->
+            <div class="pipeline-stage" data-stage="iac">
+              <div class="stage-step">04</div>
+              <div class="stage-icon"><i class="fa-solid fa-server"></i></div>
+              <div class="stage-name">IaC Guardrails</div>
+              <div class="stage-tool">Terraform / Checkov</div>
+            </div>
+
+            <div class="pipeline-connector"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Stage 5 -->
+            <div class="pipeline-stage" data-stage="deploy">
+              <div class="stage-step">05</div>
+              <div class="stage-icon"><i class="fa-solid fa-dharmachakra"></i></div>
+              <div class="stage-name">GitOps Deploy</div>
+              <div class="stage-tool">AKS / ArgoCD</div>
+            </div>
+
+            <div class="pipeline-connector"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <!-- Stage 6 -->
+            <div class="pipeline-stage" data-stage="monitor">
+              <div class="stage-step">06</div>
+              <div class="stage-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="stage-name">Observability</div>
+              <div class="stage-tool">Datadog / Prometheus</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Stage Detail Box -->
+          <div class="stage-details-box" id="stageDetailBox">
+            <div class="detail-header">
+              <h4 id="detailTitle">Stage 01: Source Code & Secret Scanning</h4>
+              <span class="detail-badge" id="detailBadge">Git Hooks Active</span>
+            </div>
+            <p id="detailDesc">
+              Automated git push validation enforces pre-commit hooks, Gitleaks pattern detection to prevent API key leaks, and SonarQube static code quality metrics before pull requests can merge.
+            </p>
+            <div class="detail-checklist" id="detailChecklist">
+              <span><i class="fa-solid fa-check text-accent"></i> Gitleaks & Trufflehog secret prevention</span>
+              <span><i class="fa-solid fa-check text-accent"></i> Terraform formatting & validate hooks</span>
+              <span><i class="fa-solid fa-check text-accent"></i> Automated branch protection rules</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-diagram-project"></i> Production Projects</span>
+          <h2 class="section-title">Engineered for Scale & Reliability</h2>
+          <p class="section-subtitle">
+            Real enterprise solutions spanning production landing zones, automated Kubernetes clusters, and zero-trust infrastructure.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Featured Project 1: Landing Zone -->
+          <div class="project-card glass-panel featured-card">
+            <div class="featured-ribbon">⭐ Flagship Enterprise Architecture</div>
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <div class="project-title-group">
+                <h3>Microservice Landing Zone & Private AKS Platform</h3>
+                <span class="project-subtitle">Enterprise Azure Infrastructure with Terraform & Zero-Trust</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              End-to-end multi-environment (Dev/Staging/Prod) landing zone. Engineered with modular Terraform (HCL), Private Azure Kubernetes Service (AKS), Hub-Spoke VNet peering, Point-to-Site VPN Gateway, Azure Private Endpoints for PostgreSQL & Key Vault, and RBAC managed identities.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-lock text-accent"></i>
+                <span>Isolated private cluster with no public IP exposure</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-key text-accent"></i>
+                <span>Azure Key Vault integration with Workload Identity</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-arrows-split-up-and-left text-accent"></i>
+                <span>Modular IaC architecture ready for multi-region deployment</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>Terraform</span>
+              <span>Azure AKS</span>
+              <span>VNet Peering</span>
+              <span>Key Vault RBAC</span>
+              <span>PostgreSQL Flexible</span>
+              <span>Bash/PowerShell</span>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/vivek-vishwakarma9/Microservice-landingzone" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fa-brands fa-github"></i> View Repository
+              </a>
+              <a href="#terminal" class="btn btn-glass btn-sm" onclick="runCommandInTerminal('terraform plan')">
+                <i class="fa-solid fa-terminal"></i> Simulate IaC Plan
+              </a>
+            </div>
+          </div>
+
+          <!-- Featured Project 2: DevSecOps Pipeline -->
+          <div class="project-card glass-panel">
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-shield-virus"></i>
+              </div>
+              <div class="project-title-group">
+                <h3>Enterprise DevSecOps CI/CD Automation</h3>
+                <span class="project-subtitle">Shift-Left Vulnerability Scanning & Compliance</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Integrated multi-stage CI/CD pipeline in GitHub Actions and Azure DevOps. Enforces static application security testing (Checkmarx), open-source software composition analysis (Black Duck), and container scanning (Aqua/Trivy) with automated break-build quality gates.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-accent"></i>
+                <span>Eliminated 100% of critical CVEs before container registry push</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-accent"></i>
+                <span>Automated SBOM (Software Bill of Materials) generation</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>GitHub Actions</span>
+              <span>Checkmarx</span>
+              <span>Black Duck</span>
+              <span>Aqua / Trivy</span>
+              <span>SonarQube</span>
+              <span>Docker</span>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                <i class="fa-brands fa-github"></i> Explore Workflow
+              </a>
+            </div>
+          </div>
+
+          <!-- Featured Project 3: Datadog Observability -->
+          <div class="project-card glass-panel">
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div class="project-title-group">
+                <h3>Full-Stack Kubernetes Observability & SRE</h3>
+                <span class="project-subtitle">Datadog APM, Prometheus & Real-Time Telemetry</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Architected a centralized observability platform across Kubernetes microservices. Implemented distributed tracing, custom service-level objectives (SLO/SLI) dashboards, automated anomaly detection, and automated pager alerts with 99.99% system availability.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-accent"></i>
+                <span>Decreased Mean Time to Resolution (MTTR) by 65%</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fa-solid fa-circle-check text-accent"></i>
+                <span>Automated log aggregation with dynamic cost-saving index filters</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>Datadog APM</span>
+              <span>Prometheus</span>
+              <span>Grafana</span>
+              <span>Azure Log Analytics</span>
+              <span>Helm</span>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                <i class="fa-brands fa-github"></i> Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TERMINAL / CLI SECTION -->
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-terminal"></i> Interactive Shell</span>
+          <h2 class="section-title">Vivek's Cloud Terminal (vsh)</h2>
+          <p class="section-subtitle">
+            Interact with my cloud environment directly from your browser. Click the shortcuts or type commands like <code>skills</code>, <code>infra-status</code>, or <code>terraform plan</code>.
+          </p>
+        </div>
+
+        <div class="terminal-container glass-panel">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">vivek@cloud-bastion: ~ (bash/zsh)</div>
+            <div class="terminal-actions">
+              <button class="term-btn" id="clearTerminalBtn" title="Clear Terminal"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminalOutput">
+            <div class="term-line welcome-line">
+              <span class="text-cyan">======================================================================</span>
+            </div>
+            <div class="term-line welcome-line">
+              <span class="text-green">⚡ Welcome to Vivek Vishwakarma's Interactive Cloud Terminal!</span>
+            </div>
+            <div class="term-line welcome-line">
+              <span class="text-muted">Type <span class="text-accent">help</span> or click quick command buttons below to test infrastructure tools.</span>
+            </div>
+            <div class="term-line welcome-line">
+              <span class="text-cyan">======================================================================</span>
+            </div>
+          </div>
+
+          <div class="terminal-quick-cmds">
+            <span>Quick Commands:</span>
+            <button class="cmd-chip" data-cmd="help">help</button>
+            <button class="cmd-chip" data-cmd="skills">skills</button>
+            <button class="cmd-chip" data-cmd="infra-status">infra-status</button>
+            <button class="cmd-chip" data-cmd="terraform plan">terraform plan</button>
+            <button class="cmd-chip" data-cmd="kubectl get pods">kubectl get pods</button>
+            <button class="cmd-chip" data-cmd="contact">contact</button>
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="term-prompt">vivek@azure-cloud:~$</span>
+            <input type="text" id="terminalInput" class="term-input" placeholder="Type a command and press Enter..." autocomplete="off" spellcheck="false">
+            <button id="termSendBtn" class="term-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / HIRE ME SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-handshake"></i> Get in Touch</span>
+          <h2 class="section-title">Let's Build Resilient Cloud Systems Together</h2>
+          <p class="section-subtitle">
+            Whether you are looking to architect multi-cloud infrastructure, migrate to Kubernetes, or harden your CI/CD pipelines — I'm open to full-time roles, consulting, and technical collaboration.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Channels -->
+          <div class="contact-info-panel glass-panel">
+            <h3>Direct Contact Channels</h3>
+            <p>Feel free to reach out via LinkedIn or email. I typically respond within 24 hours.</p>
+
+            <div class="contact-card-list">
+              <a href="mailto:vvekvishwaakrma@gmail.com" class="contact-channel-card">
+                <div class="channel-icon text-cyan"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-content">
+                  <span class="channel-label">Email Address</span>
+                  <span class="channel-value">vvekvishwaakrma@gmail.com</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square channel-link-icon"></i>
+              </a>
+
+              <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" rel="noopener" class="contact-channel-card">
+                <div class="channel-icon text-blue"><i class="fa-brands fa-linkedin"></i></div>
+                <div class="channel-content">
+                  <span class="channel-label">LinkedIn Profile</span>
+                  <span class="channel-value">linkedin.com/in/vivek-vishwakarma2000</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square channel-link-icon"></i>
+              </a>
+
+              <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener" class="contact-channel-card">
+                <div class="channel-icon text-purple"><i class="fa-brands fa-github"></i></div>
+                <div class="channel-content">
+                  <span class="channel-label">GitHub Profile</span>
+                  <span class="channel-value">github.com/vivek-vishwakarma9</span>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square channel-link-icon"></i>
+              </a>
+
+              <div class="contact-channel-card static">
+                <div class="channel-icon text-green"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="channel-content">
+                  <span class="channel-label">Work Preferences</span>
+                  <span class="channel-value">Remote / Hybrid / Global Multi-Cloud</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-panel glass-panel">
+            <h3>Send a Message</h3>
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="e.g. Alex Johnson" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" class="form-control" placeholder="alex@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject / Inquiry Type</label>
+                <select id="subject" class="form-control">
+                  <option value="DevOps Opportunity">DevOps / Cloud Role Opportunity</option>
+                  <option value="Cloud Architecture Consulting">Cloud Architecture Consulting</option>
+                  <option value="Kubernetes & DevSecOps">Kubernetes & DevSecOps Review</option>
+                  <option value="General Collaboration">General Technical Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" class="form-control" placeholder="Tell me about your project, infrastructure goals, or team requirements..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+              </button>
+
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="logo-symbol">&lt;VV/&gt;</span>
+        <span class="footer-title">Vivek Vishwakarma</span>
+        <span class="footer-sub">Senior DevOps & Cloud Infrastructure Engineer</span>
+      </div>
+
+      <div class="footer-center">
+        <span>Designed with precision & Zero-Trust principles • 2026</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/vivek-vishwakarma9" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:vvekvishwaakrma@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

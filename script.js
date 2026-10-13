@@ -1,0 +1,398 @@
+/**
+ * Vivek Vishwakarma | Executive DevOps Portfolio Scripts
+ * Interactive CLI, Pipeline Inspector, Typewriter & UX Micro-interactions
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbar();
+  initTypewriter();
+  initPipelineInspector();
+  initCloudTerminal();
+  initScrollAnimations();
+});
+
+/* --------------------------------------------------------------------------
+   1. Navbar & Mobile Menu Handling
+   -------------------------------------------------------------------------- */
+function initNavbar() {
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Typewriter Effect
+   -------------------------------------------------------------------------- */
+function initTypewriter() {
+  const typewriterEl = document.getElementById('typewriter');
+  if (!typewriterEl) return;
+
+  const phrases = [
+    'Senior DevOps & Cloud Infrastructure Engineer',
+    'Multi-Cloud Architect: Microsoft Azure & AWS',
+    'Kubernetes (AKS / EKS) & Container Orchestrator',
+    'Terraform (IaC 90%) & Automated Cloud Landing Zones',
+    'DevSecOps: Checkmarx, Black Duck & Aqua Hardening',
+    'Zero-Trust Networking, Private Endpoints & VPNs'
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typeSpeed = 55;
+  const deleteSpeed = 25;
+  const delayBetweenPhrases = 2200;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(type, delayBetweenPhrases);
+      return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(type, 350);
+      return;
+    }
+
+    setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
+  }
+
+  type();
+}
+
+/* --------------------------------------------------------------------------
+   3. DevSecOps Interactive Pipeline Visualizer
+   -------------------------------------------------------------------------- */
+function initPipelineInspector() {
+  const stages = document.querySelectorAll('.pipeline-stage');
+  const titleEl = document.getElementById('detailTitle');
+  const badgeEl = document.getElementById('detailBadge');
+  const descEl = document.getElementById('detailDesc');
+  const checklistEl = document.getElementById('detailChecklist');
+
+  const stageData = {
+    code: {
+      title: 'Stage 01: Source Code & Secret Scanning',
+      badge: 'Git Hooks Active',
+      desc: 'Enforcing pre-commit validations, Git hooks, Gitleaks pattern detection to prevent hardcoded credentials or API keys, and SonarQube static code quality metrics before pull requests can merge.',
+      checklist: [
+        'Gitleaks & Trufflehog secret prevention',
+        'Terraform fmt & validate automated hooks',
+        'Strict branch protection & signed commits'
+      ]
+    },
+    sast: {
+      title: 'Stage 02: Static Analysis (SAST) & SCA Governance',
+      badge: 'Zero-Tolerance Policy',
+      desc: 'Automated Checkmarx SAST scanning across microservices and application code. Black Duck Software Composition Analysis (SCA) automatically checks open-source dependencies for known CVEs and license compliance.',
+      checklist: [
+        'Checkmarx automated security policy gates',
+        'Black Duck open-source dependency auditing',
+        'Automated pull request blocker on High/Critical CVEs'
+      ]
+    },
+    container: {
+      title: 'Stage 03: Container Image Hardening & Registry Scanning',
+      badge: 'Distroless & Signed',
+      desc: 'Multi-stage Docker builds utilizing minimal Distroless / Alpine base images. Aqua Security and Trivy analyze container layers during build time before pushing images to Azure Container Registry (ACR) or AWS ECR.',
+      checklist: [
+        'Trivy image vulnerability scanning (CVE database sync)',
+        'Aqua Security container compliance verification',
+        'Non-root user execution & read-only file systems'
+      ]
+    },
+    iac: {
+      title: 'Stage 04: Infrastructure-as-Code (IaC) Guardrails',
+      badge: 'Checkov & OPA Validated',
+      desc: 'Terraform code is parsed using Checkov and tfsec to enforce CIS Azure/AWS benchmarks. Open Policy Agent (OPA) guarantees zero public IPs on databases and mandates encryption-at-rest across storage.',
+      checklist: [
+        'Checkov static analysis for Terraform templates',
+        'Enforce Private Endpoints & NSG default-deny rules',
+        'Automated cost estimation & drift detection'
+      ]
+    },
+    deploy: {
+      title: 'Stage 05: GitOps & Zero-Downtime Deployment',
+      badge: 'Automated ArgoCD / Helm',
+      desc: 'Continuous delivery orchestrated through ArgoCD and Helm 3 into Private Azure Kubernetes Service (AKS). Canary and blue-green deployments guarantee zero-downtime microservice rollouts.',
+      checklist: [
+        'ArgoCD GitOps declarative cluster sync',
+        'Pod Disruption Budgets & Horizontal Pod Autoscaling (HPA)',
+        'Azure Key Vault CSI driver secret injection'
+      ]
+    },
+    monitor: {
+      title: 'Stage 06: Full-Stack Observability & SRE Alerting',
+      badge: 'Datadog 24/7 APM Active',
+      desc: 'Live runtime protection and real-time observability powered by Datadog APM, Prometheus, and Grafana. Synthetic monitoring, distributed tracing, and automated alerting on SLO burn rates.',
+      checklist: [
+        'Datadog APM tracing & anomaly detection',
+        'Prometheus metrics & custom Grafana dashboards',
+        'Automated pager alerts with MTTR < 15 minutes'
+      ]
+    }
+  };
+
+  stages.forEach(stage => {
+    stage.addEventListener('click', () => {
+      stages.forEach(s => s.classList.remove('active'));
+      stage.classList.add('active');
+
+      const stageKey = stage.getAttribute('data-stage');
+      const data = stageData[stageKey];
+      if (data && titleEl && descEl && checklistEl) {
+        titleEl.textContent = data.title;
+        badgeEl.textContent = data.badge;
+        descEl.textContent = data.desc;
+        checklistEl.innerHTML = data.checklist
+          .map(item => `<span><i class="fa-solid fa-check text-accent"></i> ${item}</span>`)
+          .join('');
+      }
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   4. Cloud Terminal CLI (vsh - Vivek Shell)
+   -------------------------------------------------------------------------- */
+function initCloudTerminal() {
+  const terminalBody = document.getElementById('terminalOutput');
+  const terminalInput = document.getElementById('terminalInput');
+  const termSendBtn = document.getElementById('termSendBtn');
+  const clearBtn = document.getElementById('clearTerminalBtn');
+  const cmdChips = document.querySelectorAll('.cmd-chip');
+
+  if (!terminalBody || !terminalInput) return;
+
+  const commands = {
+    help: () => [
+      '<span class="text-cyan">Available commands:</span>',
+      '  <span class="text-accent">skills</span>           - View breakdown of tech skills & percentages',
+      '  <span class="text-accent">infra-status</span>     - Check multi-cloud cluster & landing zone status',
+      '  <span class="text-accent">terraform plan</span>   - Run simulated Terraform IaC execution plan',
+      '  <span class="text-accent">kubectl get pods</span> - View active production microservice pods',
+      '  <span class="text-accent">contact</span>          - View Vivek\'s direct contact channels',
+      '  <span class="text-accent">clear</span>            - Clear terminal output screen'
+    ],
+    skills: () => [
+      '<span class="text-cyan">=== Technical Competencies & Language Ratio ===</span>',
+      '  [IaC]        Terraform / HCL         : 90% [==================--]',
+      '  [Configs]    YAML (Pipelines/K8s)    : 90% [==================--]',
+      '  [Scripting]  Linux Shell / Bash       : 70% [==============------]',
+      '  [Scripting]  PowerShell Automation   : 65% [=============-------]',
+      '  [Code]       Python Cloud Utilities  : 60% [============--------]',
+      '  [Cloud]      Microsoft Azure (AKS)   : 92% [==================--]',
+      '  [Cloud]      Amazon Web Services AWS : 85% [=================---]',
+      '  [Security]   Checkmarx, Trivy, Aqua  : 88% [=================---]',
+      '  [Telemetry]  Datadog APM, Prometheus : 86% [=================---]'
+    ],
+    'infra-status': () => [
+      '<span class="text-green">✔ Azure Virtual Network Hub-Spoke:</span> ONLINE (VNet-Hub &lt;--&gt; VNet-Spoke Peered)',
+      '<span class="text-green">✔ Azure Kubernetes Service (AKS):</span> CLUSTER HEALTHY (Nodes: 3/3 Ready, Private API)',
+      '<span class="text-green">✔ Point-to-Site VPN Gateway:</span> ACTIVE (OpenVPN / Azure Certificate Auth)',
+      '<span class="text-green">✔ PostgreSQL Flexible Server:</span> CONNECTED (Private Endpoint 10.0.3.4)',
+      '<span class="text-green">✔ Key Vault RBAC Secrets:</span> SYNCHRONIZED (Zero public endpoints)',
+      '<span class="text-green">✔ Datadog DaemonSet Agents:</span> REPORTING (100% metrics ingested)',
+      '<span class="text-cyan">Overall Health: 100% OPTIMAL (Zero Vulnerabilities Detected)</span>'
+    ],
+    'terraform plan': () => [
+      '<span class="text-muted">$ terraform plan -out=tfplan</span>',
+      'Acquiring state lock. This may take a few moments...',
+      'Refreshing Terraform state in memory prior to plan...',
+      'module.aks_cluster.azurerm_kubernetes_cluster.k8s: Refreshing state... [id=/subscriptions/...]',
+      'module.networking.azurerm_virtual_network.vnet: Refreshing state...',
+      '<span class="text-cyan">------------------------------------------------------------------------</span>',
+      '<span class="text-green">Plan: 24 to add, 0 to change, 0 to destroy.</span>',
+      '<span class="text-muted">Changes to Outputs:</span>',
+      '  + aks_cluster_id   = "/subscriptions/.../resourceGroups/rg-infra/providers/Microsoft.ContainerService/managedClusters/aks-prod"',
+      '  + private_fqdn     = "aks-prod-priv-aionos.hcp.eastus.azmk8s.io"',
+      '<span class="text-green">✔ Zero-Trust IaC Policy Checks Passed (Checkov 0 failed). Ready to apply!</span>'
+    ],
+    'kubectl get pods': () => [
+      '<span class="text-muted">$ kubectl get pods -n production -o wide</span>',
+      'NAME                             READY   STATUS    RESTARTS   AGE    IP            NODE',
+      '<span class="text-green">auth-service-7f89d4cb8-x29q1</span>     1/1     Running   0          4d2h   10.244.0.12   aks-agentpool-vmss000',
+      '<span class="text-green">payment-gateway-69d4cb8-l91zp</span>    1/1     Running   0          4d2h   10.244.0.18   aks-agentpool-vmss001',
+      '<span class="text-green">data-processor-58471c-klm20</span>     1/1     Running   0          1d8h   10.244.0.22   aks-agentpool-vmss002',
+      '<span class="text-green">datadog-agent-daemonset-4gq9p</span>   1/1     Running   0          14d    10.244.0.2    aks-agentpool-vmss000',
+      '<span class="text-cyan">Total: 4 Pods Running, 0 Crashing, 0 Pending.</span>'
+    ],
+    contact: () => [
+      '<span class="text-cyan">=== Vivek Vishwakarma Contact Details ===</span>',
+      '  👤 Name     : Vivek Vishwakarma',
+      '  💼 Title    : Senior DevOps & Cloud Infrastructure Engineer',
+      '  📧 Email    : <a href="mailto:vvekvishwaakrma@gmail.com" class="text-accent">vvekvishwaakrma@gmail.com</a>',
+      '  🔗 LinkedIn : <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" class="text-accent">linkedin.com/in/vivek-vishwakarma2000</a>',
+      '  🐙 GitHub   : <a href="https://github.com/vivek-vishwakarma9" target="_blank" class="text-accent">github.com/vivek-vishwakarma9</a>'
+    ],
+    clear: () => {
+      terminalBody.innerHTML = '';
+      return [];
+    }
+  };
+
+  function executeCommand(inputRaw) {
+    const input = inputRaw.trim().toLowerCase();
+    if (!input) return;
+
+    // Append user input line
+    const userLine = document.createElement('div');
+    userLine.className = 'term-line';
+    userLine.innerHTML = `<span class="term-prompt">vivek@azure-cloud:~$</span> <span class="text-white">${escapeHtml(inputRaw)}</span>`;
+    terminalBody.appendChild(userLine);
+
+    if (commands[input]) {
+      const outputLines = commands[input]();
+      outputLines.forEach(line => {
+        const lineEl = document.createElement('div');
+        lineEl.className = 'term-line';
+        lineEl.innerHTML = line;
+        terminalBody.appendChild(lineEl);
+      });
+    } else {
+      const errEl = document.createElement('div');
+      errEl.className = 'term-line';
+      errEl.innerHTML = `<span class="text-rose">vsh: command not found: ${escapeHtml(input)}. Type <span class="text-accent">help</span> for available commands.</span>`;
+      terminalBody.appendChild(errEl);
+    }
+
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+    terminalInput.value = '';
+  }
+
+  // Global helper for button clicks in project cards
+  window.runCommandInTerminal = (cmd) => {
+    const termSec = document.getElementById('terminal');
+    if (termSec) {
+      termSec.scrollIntoView({ behavior: 'smooth' });
+    }
+    setTimeout(() => {
+      executeCommand(cmd);
+    }, 500);
+  };
+
+  terminalInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      executeCommand(terminalInput.value);
+    }
+  });
+
+  if (termSendBtn) {
+    termSendBtn.addEventListener('click', () => {
+      executeCommand(terminalInput.value);
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      commands.clear();
+    });
+  }
+
+  cmdChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const cmd = chip.getAttribute('data-cmd');
+      executeCommand(cmd);
+    });
+  });
+}
+
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+/* --------------------------------------------------------------------------
+   5. Contact Form Handler
+   -------------------------------------------------------------------------- */
+window.handleContactSubmit = function(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('formSubmitBtn');
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing Transmission...';
+
+  setTimeout(() => {
+    statusEl.innerHTML = `
+      <span class="text-green">
+        <i class="fa-solid fa-circle-check"></i> Thank you, ${escapeHtml(name)}! Opening your mail client to send directly to Vivek...
+      </span>
+    `;
+
+    // Construct mailto link as fallback
+    const mailtoUrl = `mailto:vvekvishwaakrma@gmail.com?subject=${encodeURIComponent(`[Portfolio Inquiry] ${subject} from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInquiry Type: ${subject}\n\nMessage:\n${message}`)}`;
+    
+    window.location.href = mailtoUrl;
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Ready';
+  }, 900);
+};
+
+/* --------------------------------------------------------------------------
+   6. Scroll Animations & Reveal
+   -------------------------------------------------------------------------- */
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.glass-panel, .metric-card').forEach(el => {
+    observer.observe(el);
+  });
+}
