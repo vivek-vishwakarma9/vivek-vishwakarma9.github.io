@@ -23,59 +23,98 @@
   <link rel="stylesheet" href="styles.css?v=3.0">
 
   <style>
-    /* Absolute inline guarantees to prevent any badge overlap */
+    /* Executive Profile Card Layout - Zero Obstruction on Photo */
     .profile-card-wrapper {
       position: relative;
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
     }
-    .badge-top-right {
-      top: 15px !important;
-      right: -25px !important;
-      bottom: auto !important;
+    .profile-card {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(160deg, rgba(16, 24, 40, 0.85) 0%, rgba(8, 12, 22, 0.95) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 24px;
+      padding: 1.25rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(20px);
     }
-    .badge-mid-left {
-      top: 36% !important;
-      left: -32px !important;
-      bottom: auto !important;
-      border-color: rgba(50, 108, 229, 0.5) !important;
+    .profile-img-container {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 420px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .badge-mid-right {
-      top: 66% !important;
-      right: -28px !important;
-      bottom: auto !important;
-      border-color: rgba(16, 185, 129, 0.5) !important;
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .profile-footer-tag {
-      margin-top: 1.4rem !important;
-      padding: 0.9rem 1.2rem !important;
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      background: rgba(8, 14, 26, 0.95) !important;
-      border-radius: 14px !important;
-      border: 1px solid rgba(0, 242, 254, 0.3) !important;
-      position: relative !important;
-      z-index: 25 !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+      margin-top: 1.1rem;
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(12, 18, 32, 0.9);
+      border-radius: 14px;
+      border: 1px solid rgba(0, 242, 254, 0.2);
     }
     .profile-footer-tag .tag-name {
-      font-size: 1.05rem !important;
-      font-weight: 700 !important;
-      color: #ffffff !important;
-      display: block !important;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: block;
     }
     .profile-footer-tag .tag-role {
-      font-size: 0.82rem !important;
-      color: #00f2fe !important;
-      font-family: 'JetBrains Mono', monospace !important;
-      display: block !important;
-      margin-top: 0.2rem !important;
+      font-size: 0.82rem;
+      color: #00f2fe;
+      font-family: 'JetBrains Mono', monospace;
+      display: block;
+      margin-top: 0.15rem;
     }
-    @media (max-width: 768px) {
-      .badge-top-right { top: 10px !important; right: -10px !important; }
-      .badge-mid-left { top: 38% !important; left: -10px !important; }
-      .badge-mid-right { top: 68% !important; right: -10px !important; }
+    .profile-badges-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 0.85rem;
+    }
+    .profile-badge-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.65rem 0.95rem;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      transition: all 0.25s ease;
+    }
+    .profile-badge-pill:hover {
+      background: rgba(22, 35, 62, 0.85);
+      border-color: rgba(0, 242, 254, 0.3);
+      transform: translateX(4px);
+    }
+    .profile-badge-pill i {
+      font-size: 1.25rem;
+      width: 24px;
+      text-align: center;
+    }
+    .profile-badge-pill .badge-texts {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-badge-pill strong {
+      font-size: 0.83rem;
+      color: #f1f5f9;
+      line-height: 1.25;
+    }
+    .profile-badge-pill span {
+      font-size: 0.72rem;
+      color: #94a3b8;
     }
   </style>
 </head>
@@ -191,42 +230,47 @@
           <div class="profile-card-wrapper">
             <div class="profile-card-glow"></div>
             <div class="profile-card">
+              <!-- Clean, Unobstructed Portrait Photo -->
               <div class="profile-img-container">
                 <img src="assets/profile.jpg" alt="Vivek Vishwakarma - Senior DevSecOps Engineer" class="profile-img" id="profileImage">
                 <div class="profile-gradient-overlay"></div>
               </div>
               
-              <div class="profile-badge badge-top-right">
-                <i class="fa-solid fa-robot text-purple"></i>
-                <div>
-                  <strong>Agentic AI & Cloud</strong>
-                  <span>Autonomous AI Ops</span>
-                </div>
-              </div>
-
-              <div class="profile-badge badge-mid-left">
-                <i class="fa-solid fa-dharmachakra text-k8s"></i>
-                <div>
-                  <strong>K8s, ArgoCD & Helm</strong>
-                  <span>GitOps Continuous Delivery</span>
-                </div>
-              </div>
-
-              <div class="profile-badge badge-mid-right">
-                <i class="fa-solid fa-shield-halved text-shield"></i>
-                <div>
-                  <strong>DevSecOps</strong>
-                  <span>Checkmarx & Trivy Hardened</span>
-                </div>
-              </div>
-
+              <!-- Name & Title Tag -->
               <div class="profile-footer-tag">
                 <div class="tag-info">
                   <span class="tag-name">Vivek Vishwakarma</span>
                   <span class="tag-role">Senior DevSecOps Engineer</span>
                 </div>
-                <div class="tag-status-indicator" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #10b981; font-weight: 600;">
+                <div class="tag-status-indicator" style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; color: #10b981; font-weight: 600;">
                   <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></span> Online
+                </div>
+              </div>
+
+              <!-- Sleek Clean Badges Stack (Zero Overlap on Photo!) -->
+              <div class="profile-badges-stack">
+                <div class="profile-badge-pill">
+                  <i class="fa-solid fa-robot text-purple"></i>
+                  <div class="badge-texts">
+                    <strong>Agentic AI & Multi-Cloud</strong>
+                    <span>Autonomous AI Ops • Azure & AWS</span>
+                  </div>
+                </div>
+
+                <div class="profile-badge-pill">
+                  <i class="fa-solid fa-dharmachakra text-k8s"></i>
+                  <div class="badge-texts">
+                    <strong>Kubernetes, ArgoCD & Helm</strong>
+                    <span>Zero-Downtime Rolling & Blue-Green</span>
+                  </div>
+                </div>
+
+                <div class="profile-badge-pill">
+                  <i class="fa-solid fa-shield-halved text-shield"></i>
+                  <div class="badge-texts">
+                    <strong>Production DevSecOps & DR</strong>
+                    <span>Checkmarx, Trivy • RPO/RTO Tested</span>
+                  </div>
                 </div>
               </div>
             </div>
