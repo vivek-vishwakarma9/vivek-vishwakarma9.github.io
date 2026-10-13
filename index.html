@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Styles with cache-buster -->
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=6.0">
 
   <style>
     /* Executive Profile Card Layout - Zero Obstruction on Photo */
@@ -47,12 +47,24 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
+    .profile-gradient-overlay {
+      display: none !important;
+    }
     .profile-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
+      filter: brightness(1.08) contrast(1.03) saturate(1.03);
+    }
+    @media (max-width: 768px) {
+      .profile-img {
+        filter: brightness(1.18) contrast(1.04) saturate(1.05) !important;
+      }
+      .profile-gradient-overlay {
+        display: none !important;
+      }
     }
     .profile-footer-tag {
       margin-top: 1.1rem;
@@ -230,10 +242,9 @@
           <div class="profile-card-wrapper">
             <div class="profile-card-glow"></div>
             <div class="profile-card">
-              <!-- Clean, Unobstructed Portrait Photo -->
+              <!-- Clean, Bright Portrait Photo (Zero Dark Overlay) -->
               <div class="profile-img-container">
-                <img src="assets/profile.jpg?v=2" alt="Vivek Vishwakarma - Senior DevSecOps Engineer" class="profile-img" id="profileImage">
-                <div class="profile-gradient-overlay"></div>
+                <img src="assets/profile.jpg?v=5" alt="Vivek Vishwakarma - Senior DevSecOps Engineer" class="profile-img" id="profileImage">
               </div>
               
               <!-- Name & Title Tag -->
