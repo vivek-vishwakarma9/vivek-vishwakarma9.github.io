@@ -2,7 +2,7 @@
 
 > **Live Portfolio:** [https://vivek-vishwakarma9.github.io](https://vivek-vishwakarma9.github.io)  
 > **Headline:** Senior DevSecOps Engineer | ☁️ Azure & AWS Cloud | 🤖 Agentic AI | 🔁 CI/CD Pipelines | 🧰 Git & GitHub | 🏗️ Terraform | 🐳 Docker | ☸️ Kubernetes | 🐙 ArgoCD | ⎈ Helm | 🚀 GitHub Actions | 🐧 Linux | 🗄️ SQL | ⭕ Oracle Database  
-> **LinkedIn:** [https://www.linkedin.com/in/vivek-vishwakarma-devops/?isSelfProfile=true](https://www.linkedin.com/in/vivek-vishwakarma-devops/?isSelfProfile=true)  
+> **LinkedIn:** [https://www.linkedin.com/in/vivek-vishwakarmaa/](https://www.linkedin.com/in/vivek-vishwakarmaa/)  
 > **Email:** [vivekvis321@gmail.com](mailto:vivekvis321@gmail.com)  
 > **Phone / WhatsApp:** [+91 8999617471](tel:+918999617471)
 

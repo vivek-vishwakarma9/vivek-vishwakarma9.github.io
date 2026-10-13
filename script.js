@@ -276,7 +276,7 @@ function initCloudTerminal() {
       '  💼 Title    : Senior DevSecOps Engineer | Azure & AWS | Agentic AI',
       '  📱 Phone    : <a href="tel:+918999617471" class="text-accent">+91 8999617471</a>',
       '  📧 Email    : <a href="mailto:vivekvis321@gmail.com" class="text-accent">vivekvis321@gmail.com</a>',
-      '  🔗 LinkedIn : <a href="https://www.linkedin.com/in/vivek-vishwakarma-devops/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" class="text-accent">linkedin.com/in/vivek-vishwakarma-devops</a>',
+      '  🔗 LinkedIn : <a href="https://www.linkedin.com/in/vivek-vishwakarmaa/" target="_blank" rel="noopener noreferrer" class="text-accent">linkedin.com/in/vivek-vishwakarmaa</a>',
       '  🐙 GitHub   : <a href="https://github.com/vivek-vishwakarma9" target="_blank" class="text-accent">github.com/vivek-vishwakarma9</a>'
     ],
     clear: () => {
