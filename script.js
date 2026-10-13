@@ -5,6 +5,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initCustomCursor();
+  initVanillaTilt();
+  initK8sClusterRadar();
+  initLiveGitHubStats();
   initTypewriter();
   initPipelineInspector();
   initCloudTerminal();
@@ -434,4 +438,169 @@ function initScrollAnimations() {
   document.querySelectorAll('.glass-panel, .metric-card').forEach(el => {
     observer.observe(el);
   });
+}
+
+/* --------------------------------------------------------------------------
+   7. Magnetic Neon Glow Cursor (Desktop only)
+   -------------------------------------------------------------------------- */
+function initCustomCursor() {
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX = mouseX;
+  let ringY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = `${mouseX}px`;
+    dot.style.top = `${mouseY}px`;
+  });
+
+  function renderCursor() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = `${ringX}px`;
+    ring.style.top = `${ringY}px`;
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  const interactiveSelector = 'a, button, .cockpit-btn, .pipeline-stage, .cmd-chip, .profile-badge-pill, .glass-panel, .orbit-satellite';
+  document.querySelectorAll(interactiveSelector).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('active'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. 3D Card Tilt (VanillaTilt)
+   -------------------------------------------------------------------------- */
+function initVanillaTilt() {
+  if (typeof VanillaTilt === 'undefined') return;
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+    max: 10,
+    speed: 500,
+    glare: true,
+    'max-glare': 0.22,
+    scale: 1.01
+  });
+}
+
+/* --------------------------------------------------------------------------
+   9. Autonomous Kubernetes & Agentic AI Cluster Radar Simulator
+   -------------------------------------------------------------------------- */
+function initK8sClusterRadar() {
+  const btnBlueGreen = document.getElementById('btnSimulateBlueGreen');
+  const btnSelfHeal = document.getElementById('btnSimulateSelfHeal');
+  const btnTrivy = document.getElementById('btnSimulateTrivyScan');
+  const logStream = document.getElementById('radarLogStream');
+  const k8sCore = document.getElementById('k8sCoreSphere');
+  const satArgo = document.getElementById('satArgo');
+  const satAi = document.getElementById('satAi');
+  const satTrivy = document.getElementById('satTrivy');
+
+  function addLog(msg, colorClass = 'text-cyan') {
+    if (!logStream) return;
+    const now = new Date();
+    const timeStr = now.toTimeString().split(' ')[0];
+    const line = document.createElement('div');
+    line.className = 'log-line text-muted';
+    line.innerHTML = `[${timeStr}] <span class="${colorClass}">${msg}</span>`;
+    logStream.appendChild(line);
+    logStream.scrollTop = logStream.scrollHeight;
+  }
+
+  // 1. Blue-Green Zero-Downtime Deployment
+  if (btnBlueGreen) {
+    btnBlueGreen.addEventListener('click', () => {
+      btnBlueGreen.disabled = true;
+      addLog('ArgoCD: Initiating Zero-Downtime Blue-Green traffic shift...', 'text-yellow');
+      if (satArgo) satArgo.style.transform = 'translate(-50%, -50%) scale(1.35)';
+
+      setTimeout(() => {
+        addLog('Ingress Controller: Routing 100% traffic from Blue (v1.4) &rarr; Green (v1.5)', 'text-cyan');
+        if (k8sCore) {
+          k8sCore.style.boxShadow = '0 0 50px rgba(16, 185, 129, 0.7)';
+          k8sCore.style.borderColor = '#10b981';
+        }
+      }, 700);
+
+      setTimeout(() => {
+        addLog('Zero-Downtime Verification: 0 dropped packets | P99 latency: 3.4ms | Complete!', 'text-green');
+        if (satArgo) satArgo.style.transform = '';
+        if (k8sCore) {
+          k8sCore.style.boxShadow = '';
+          k8sCore.style.borderColor = '';
+        }
+        btnBlueGreen.disabled = false;
+      }, 1600);
+    });
+  }
+
+  // 2. AI Pod Self-Healing Simulation
+  if (btnSelfHeal) {
+    btnSelfHeal.addEventListener('click', () => {
+      btnSelfHeal.disabled = true;
+      addLog('SIMULATION: Injected CrashLoopBackOff on pod `checkout-service-8b1`', 'text-rose');
+      if (satAi) satAi.style.transform = 'translate(-50%, -50%) scale(1.35)';
+
+      setTimeout(() => {
+        addLog('Agentic AI Operator: Intercepted crash event. Diagnosing OOMKill exit code 137...', 'text-purple');
+      }, 600);
+
+      setTimeout(() => {
+        addLog('Agentic AI: Auto-remediation applied: memory limit 512Mi &rarr; 1024Mi. Pod healthy!', 'text-green');
+        if (satAi) satAi.style.transform = '';
+        btnSelfHeal.disabled = false;
+      }, 1500);
+    });
+  }
+
+  // 3. Trivy Security Audit
+  if (btnTrivy) {
+    btnTrivy.addEventListener('click', () => {
+      btnTrivy.disabled = true;
+      addLog('Trivy Engine: Scanning image `acr.azure.io/microservices/api:v3`...', 'text-yellow');
+      if (satTrivy) satTrivy.style.transform = 'translate(-50%, -50%) scale(1.35)';
+
+      setTimeout(() => {
+        addLog('CVE Database Sync: 0 Critical, 0 High vulnerabilities detected in Distroless layers', 'text-cyan');
+      }, 700);
+
+      setTimeout(() => {
+        addLog('Admission Controller: Policy Gate Approved & Signed &rarr; Permitted to deploy', 'text-green');
+        if (satTrivy) satTrivy.style.transform = '';
+        btnTrivy.disabled = false;
+      }, 1500);
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. Live GitHub API Data Sync
+   -------------------------------------------------------------------------- */
+function initLiveGitHubStats() {
+  const username = 'vivek-vishwakarma9';
+  fetch(`https://api.github.com/users/${username}`)
+    .then(res => {
+      if (!res.ok) throw new Error('Rate limit');
+      return res.json();
+    })
+    .then(data => {
+      const repoEl = document.getElementById('githubRepoCount');
+      if (repoEl && data.public_repos) {
+        repoEl.textContent = `${data.public_repos}+`;
+      }
+    })
+    .catch(() => {
+      // Graceful offline fallback
+    });
 }

@@ -1839,3 +1839,766 @@ body {
     gap: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   Magnetic Neon Glow Cursor (Desktop only)
+   ========================================================================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  background-color: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(0, 242, 254, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.15);
+}
+
+.cursor-ring.active {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(139, 92, 246, 0.8);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+@media (pointer: coarse), (max-width: 992px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Autonomous Kubernetes & Agentic AI Cluster Radar Section
+   ========================================================================== */
+.k8s-radar-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, rgba(13, 27, 50, 0.4) 0%, transparent 70%);
+  overflow: hidden;
+}
+
+.k8s-radar-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+/* 3D Orbit Stage */
+.radar-orbit-stage {
+  position: relative;
+  border-radius: 24px;
+  padding: 1.8rem;
+  background: linear-gradient(160deg, rgba(16, 26, 46, 0.75) 0%, rgba(8, 14, 26, 0.95) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 560px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.orbit-stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.cluster-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.9rem;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.cluster-badge .ping-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseDot 2s infinite;
+}
+
+.k8s-version-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.k8s-version-pill i {
+  color: #326ce5;
+  font-size: 1rem;
+}
+
+/* 3D Orbit Stage Canvas / Visual */
+.orbit-visual-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+/* Background Radar Scanner Grid */
+.radar-grid-rings {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px dashed rgba(0, 242, 254, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.radar-grid-rings::before {
+  content: '';
+  position: absolute;
+  inset: 45px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 50%;
+}
+.radar-grid-rings::after {
+  content: '';
+  position: absolute;
+  inset: 90px;
+  border: 1px dashed rgba(0, 242, 254, 0.12);
+  border-radius: 50%;
+}
+
+.radar-scan-line {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(0, 242, 254, 0.15) 0deg, transparent 60deg, transparent 360deg);
+  animation: radarSweep 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Central 3D Spinning K8s Core Wheel */
+.k8s-core-sphere {
+  position: relative;
+  z-index: 10;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 25, 48, 0.95) 0%, rgba(6, 12, 22, 0.98) 100%);
+  border: 2px solid rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.35), inset 0 0 20px rgba(50, 108, 229, 0.5);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.k8s-wheel-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateK8sWheel 18s linear infinite;
+}
+
+.k8s-center-wheel {
+  font-size: 2.8rem;
+  color: #326ce5;
+  filter: drop-shadow(0 0 12px rgba(50, 108, 229, 0.8));
+}
+
+@keyframes rotateK8sWheel {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.k8s-core-pulse {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  animation: corePulse 3s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes corePulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.k8s-core-label {
+  position: absolute;
+  bottom: -28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.k8s-core-label strong {
+  font-size: 0.68rem;
+  letter-spacing: 1.2px;
+  color: var(--cyan);
+}
+
+.k8s-core-label span {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+/* 3D Orbit Paths */
+.orbit-path {
+  position: absolute;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+/* Orbit 1: Wide Horizontal Orbit (Clockwise) */
+.orbit-path-1 {
+  width: 320px;
+  height: 320px;
+  border: 1.5px dashed rgba(0, 242, 254, 0.28);
+  animation: orbitRotate1 22s linear infinite;
+  z-index: 6;
+}
+
+@keyframes orbitRotate1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Orbit 2: Tilted Elliptical Orbit (Counter-Clockwise) */
+.orbit-path-2 {
+  width: 250px;
+  height: 250px;
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+  animation: orbitRotate2 16s linear infinite reverse;
+  z-index: 7;
+  transform: rotateX(25deg) rotateY(15deg);
+}
+
+@keyframes orbitRotate2 {
+  from { transform: rotateX(25deg) rotateY(15deg) rotate(0deg); }
+  to { transform: rotateX(25deg) rotateY(15deg) rotate(360deg); }
+}
+
+/* Orbiting Satellites / Nodes */
+.orbit-satellite {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+/* Positioning satellites along the circle */
+.orbit-path-1 .sat-argocd {
+  top: 0%;
+  left: 50%;
+}
+.orbit-path-1 .sat-trivy {
+  bottom: 0%;
+  left: 50%;
+}
+
+.orbit-path-2 .sat-ai {
+  top: 50%;
+  left: 0%;
+}
+.orbit-path-2 .sat-dr {
+  top: 50%;
+  right: -36px;
+}
+
+.sat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #ffffff;
+  box-shadow: 0 0 15px currentColor;
+  transition: transform 0.3s ease;
+}
+
+.sat-icon.bg-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #10b981;
+}
+.sat-icon.bg-green i { color: #ffffff; }
+
+.sat-icon.bg-purple {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: #a855f7;
+}
+.sat-icon.bg-purple i { color: #ffffff; }
+
+.sat-icon.bg-cyan {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #00f2fe;
+}
+.sat-icon.bg-cyan i { color: #080c14; }
+
+.sat-icon.bg-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #f59e0b;
+}
+.sat-icon.bg-amber i { color: #ffffff; }
+
+.sat-tooltip {
+  position: absolute;
+  left: 45px;
+  background: rgba(10, 18, 32, 0.92);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0.9;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.sat-tooltip strong {
+  font-size: 0.72rem;
+  color: #ffffff;
+}
+
+.sat-tooltip span {
+  font-size: 0.62rem;
+  color: var(--cyan);
+}
+
+.orbit-satellite:hover .sat-icon {
+  transform: scale(1.2);
+}
+
+/* Pause orbit on hover for easy inspection */
+.orbit-visual-wrapper:hover .orbit-path-1,
+.orbit-visual-wrapper:hover .orbit-path-2 {
+  animation-play-state: paused;
+}
+
+/* Orbit Stage Footer Telemetry */
+.orbit-stage-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 5;
+}
+
+.telemetry-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.telemetry-label {
+  color: var(--text-muted);
+}
+
+.telemetry-value {
+  font-weight: 600;
+}
+
+/* Right Column: Interactive Control Cockpit */
+.radar-cockpit {
+  border-radius: 24px;
+  padding: 1.8rem;
+  background: linear-gradient(160deg, rgba(16, 26, 46, 0.75) 0%, rgba(8, 14, 26, 0.95) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.cockpit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.cockpit-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cockpit-status-tag {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--purple-light);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.cockpit-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+}
+
+/* Interactive Trigger Action Buttons */
+.cockpit-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.cockpit-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(18, 30, 52, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cockpit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: left 0.5s ease;
+}
+
+.cockpit-btn:hover::before {
+  left: 100%;
+}
+
+.cockpit-btn:hover {
+  background: rgba(24, 40, 70, 0.9);
+  border-color: rgba(0, 242, 254, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cockpit-btn:active {
+  transform: scale(0.98);
+}
+
+.btn-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.btn-icon-wrapper.bg-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.btn-icon-wrapper.bg-cyan {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.btn-icon-wrapper.bg-purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--purple-light);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.btn-text-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.btn-text-content strong {
+  font-size: 0.88rem;
+  color: #ffffff;
+  margin-bottom: 0.15rem;
+}
+
+.btn-text-content span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.arrow-icon {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cockpit-btn:hover .arrow-icon {
+  transform: translateX(3px);
+  color: var(--cyan);
+}
+
+/* Cockpit Live Terminal Log Feed */
+.cockpit-terminal-log {
+  background: rgba(5, 9, 16, 0.95);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 130px;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.6rem;
+}
+
+.log-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #10b981;
+}
+
+.log-indicator .ping-dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulseDot 1.5s infinite;
+}
+
+.log-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  overflow-y: auto;
+  max-height: 120px;
+}
+
+.log-line {
+  line-height: 1.4;
+  animation: logLineIn 0.3s ease;
+}
+
+@keyframes logLineIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Radar for Tablets and Mobile */
+@media (max-width: 992px) {
+  .k8s-radar-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .radar-orbit-stage {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .radar-orbit-stage,
+  .radar-cockpit {
+    padding: 1.35rem 1.1rem;
+    border-radius: 20px;
+  }
+  .sat-tooltip {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .radar-orbit-stage {
+    min-height: 440px;
+    padding: 1.2rem 0.9rem;
+  }
+  .radar-cockpit {
+    padding: 1.2rem 0.9rem;
+  }
+  .orbit-visual-wrapper {
+    height: 310px;
+    margin: 1rem 0;
+  }
+  .orbit-path-1 {
+    width: 260px;
+    height: 260px;
+  }
+  .orbit-path-2 {
+    width: 200px;
+    height: 200px;
+  }
+  .radar-grid-rings,
+  .radar-scan-line {
+    width: 270px;
+    height: 270px;
+  }
+  .k8s-core-sphere {
+    width: 86px;
+    height: 86px;
+  }
+  .k8s-center-wheel {
+    font-size: 2.1rem;
+  }
+  .sat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  .sat-tooltip {
+    display: none !important;
+  }
+  .orbit-stage-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .cockpit-btn {
+    padding: 0.78rem 0.95rem;
+    gap: 0.8rem;
+  }
+  .btn-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .btn-text-content strong {
+    font-size: 0.84rem;
+  }
+  .btn-text-content span {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .radar-orbit-stage,
+  .radar-cockpit {
+    padding: 1rem 0.75rem;
+    border-radius: 18px;
+  }
+  .orbit-visual-wrapper {
+    height: 270px;
+  }
+  .orbit-path-1 {
+    width: 220px;
+    height: 220px;
+  }
+  .orbit-path-2 {
+    width: 170px;
+    height: 170px;
+  }
+  .radar-grid-rings,
+  .radar-scan-line {
+    width: 230px;
+    height: 230px;
+  }
+  .k8s-core-sphere {
+    width: 76px;
+    height: 76px;
+  }
+  .k8s-center-wheel {
+    font-size: 1.8rem;
+  }
+  .sat-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+  .cockpit-btn {
+    padding: 0.7rem 0.75rem;
+    gap: 0.65rem;
+  }
+  .btn-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+  .btn-text-content strong {
+    font-size: 0.8rem;
+  }
+  .btn-text-content span {
+    font-size: 0.68rem;
+  }
+  .telemetry-pill {
+    font-size: 0.72rem;
+  }
+}

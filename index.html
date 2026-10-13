@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Styles with cache-buster -->
-  <link rel="stylesheet" href="styles.css?v=6.0">
+  <link rel="stylesheet" href="styles.css?v=7.0">
 
   <style>
     /* Executive Profile Card Layout - Zero Obstruction on Photo */
@@ -131,6 +131,10 @@
   </style>
 </head>
 <body>
+  <!-- Glowing Neon Magnetic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- Ambient background glow elements -->
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
@@ -146,6 +150,7 @@
       </a>
       
       <nav class="nav-links" id="navLinks">
+        <a href="#k8s-radar" class="nav-link"><i class="fa-solid fa-dharmachakra"></i> K8s Radar</a>
         <a href="#about" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> About</a>
         <a href="#skills" class="nav-link"><i class="fa-solid fa-layer-group"></i> Skills</a>
         <a href="#devsecops" class="nav-link"><i class="fa-solid fa-shield-halved"></i> DevSecOps</a>
@@ -241,10 +246,10 @@
         <div class="hero-visual">
           <div class="profile-card-wrapper">
             <div class="profile-card-glow"></div>
-            <div class="profile-card">
+            <div class="profile-card" data-tilt data-tilt-max="8" data-tilt-glare data-tilt-max-glare="0.2">
               <!-- Clean, Bright Portrait Photo (Zero Dark Overlay) -->
               <div class="profile-img-container">
-                <img src="assets/profile.jpg?v=5" alt="Vivek Vishwakarma - Senior DevSecOps Engineer" class="profile-img" id="profileImage">
+                <img src="assets/profile.jpg?v=6" alt="Vivek Vishwakarma - Senior DevSecOps Engineer" class="profile-img" id="profileImage">
               </div>
               
               <!-- Name & Title Tag -->
@@ -283,6 +288,166 @@
                     <span>Checkmarx, Trivy • RPO/RTO Tested</span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTONOMOUS KUBERNETES & AGENTIC AI CLUSTER RADAR -->
+    <section class="section k8s-radar-section" id="k8s-radar">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-dharmachakra fa-spin text-cyan"></i> Autonomous Cloud Orchestration</span>
+          <h2 class="section-title">Autonomous Kubernetes & Agentic AI Cluster Radar</h2>
+          <p class="section-subtitle">
+            Live 3D telemetry visualization of zero-downtime microservices (Rolling & Blue-Green releases), self-healing AI operators, and multi-cloud governance.
+          </p>
+        </div>
+
+        <div class="k8s-radar-grid">
+          <!-- 3D Holographic Orbit Stage -->
+          <div class="radar-orbit-stage glass-panel" data-tilt data-tilt-max="8" data-tilt-glare data-tilt-max-glare="0.2">
+            <div class="orbit-stage-header">
+              <div class="cluster-badge">
+                <span class="ping-dot"></span>
+                <span>AKS-PROD-EASTUS-01</span>
+              </div>
+              <div class="k8s-version-pill">
+                <i class="fa-solid fa-dharmachakra"></i> K8s v1.30.2
+              </div>
+            </div>
+
+            <!-- The 3D Orbit Canvas / Elements -->
+            <div class="orbit-visual-wrapper">
+              <!-- Central 3D Spinning K8s Core Wheel -->
+              <div class="k8s-core-sphere" id="k8sCoreSphere">
+                <div class="k8s-wheel-outer">
+                  <i class="fa-solid fa-dharmachakra k8s-center-wheel"></i>
+                </div>
+                <div class="k8s-core-pulse"></div>
+                <div class="k8s-core-label">
+                  <strong>CONTROL PLANE</strong>
+                  <span>Auto-Pilot AI</span>
+                </div>
+              </div>
+
+              <!-- Orbit Path 1 (Wide Horizontal Orbit - Clockwise) -->
+              <div class="orbit-path orbit-path-1" id="orbitPath1">
+                <div class="orbit-satellite sat-argocd" id="satArgo" title="ArgoCD GitOps: Zero-Downtime Rolling Release">
+                  <div class="sat-icon bg-green"><i class="fa-solid fa-rotate"></i></div>
+                  <div class="sat-tooltip">
+                    <strong>ArgoCD GitOps</strong>
+                    <span>Rolling Sync: 100% OK</span>
+                  </div>
+                </div>
+                <div class="orbit-satellite sat-trivy" id="satTrivy" title="Trivy Vulnerability Scanner: 0 CVEs">
+                  <div class="sat-icon bg-purple"><i class="fa-solid fa-shield-cat"></i></div>
+                  <div class="sat-tooltip">
+                    <strong>Trivy Guard</strong>
+                    <span>CVE-0 High/Critical</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Orbit Path 2 (Tilted Elliptical Orbit - Counter-Clockwise) -->
+              <div class="orbit-path orbit-path-2" id="orbitPath2">
+                <div class="orbit-satellite sat-ai" id="satAi" title="Agentic AI Operator: Autonomous Self-Healing">
+                  <div class="sat-icon bg-cyan"><i class="fa-solid fa-brain"></i></div>
+                  <div class="sat-tooltip">
+                    <strong>Agentic AI</strong>
+                    <span>Self-Healing: Active</span>
+                  </div>
+                </div>
+                <div class="orbit-satellite sat-dr" id="satDr" title="Disaster Recovery: RPO <15m">
+                  <div class="sat-icon bg-amber"><i class="fa-solid fa-database"></i></div>
+                  <div class="sat-tooltip">
+                    <strong>DR Failover</strong>
+                    <span>RPO &lt; 15m Synced</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Decorative Radar Grid & Scanner Sweep -->
+              <div class="radar-scan-line"></div>
+              <div class="radar-grid-rings"></div>
+            </div>
+
+            <!-- Orbit Stage Footer Telemetry -->
+            <div class="orbit-stage-footer">
+              <div class="telemetry-pill">
+                <span class="telemetry-label">Pods Health:</span>
+                <span class="telemetry-value text-green">48/48 Nominal</span>
+              </div>
+              <div class="telemetry-pill">
+                <span class="telemetry-label">Ingress Latency:</span>
+                <span class="telemetry-value text-cyan">3.8ms P99</span>
+              </div>
+              <div class="telemetry-pill">
+                <span class="telemetry-label">Downtime:</span>
+                <span class="telemetry-value text-green">0.00% (Zero Downtime)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Control Cockpit -->
+          <div class="radar-cockpit glass-panel" data-tilt data-tilt-max="6">
+            <div class="cockpit-header">
+              <h3><i class="fa-solid fa-sliders text-cyan"></i> AI Cluster Control Cockpit</h3>
+              <span class="cockpit-status-tag">Interactive Sandbox</span>
+            </div>
+
+            <p class="cockpit-desc">
+              Test Vivek's autonomous cloud orchestration workflows directly. Click any action below to trigger a live simulation on the cluster radar:
+            </p>
+
+            <!-- Quick Action Interactive Triggers -->
+            <div class="cockpit-actions">
+              <button class="cockpit-btn" id="btnSimulateBlueGreen">
+                <div class="btn-icon-wrapper bg-green">
+                  <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                </div>
+                <div class="btn-text-content">
+                  <strong>1. Zero-Downtime Blue-Green Release</strong>
+                  <span>Shift traffic from Blue (v1.4) to Green (v1.5) with zero packet drop</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+              </button>
+
+              <button class="cockpit-btn" id="btnSimulateSelfHeal">
+                <div class="btn-icon-wrapper bg-cyan">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="btn-text-content">
+                  <strong>2. AI Autonomous Pod Self-Healing</strong>
+                  <span>Simulate Pod CrashLoop & OOMKill &rarr; AI auto-triage & rollback</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+              </button>
+
+              <button class="cockpit-btn" id="btnSimulateTrivyScan">
+                <div class="btn-icon-wrapper bg-purple">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="btn-text-content">
+                  <strong>3. Automated Trivy Image CVE Audit</strong>
+                  <span>Scan container layers & enforce admission controller policy</span>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+              </button>
+            </div>
+
+            <!-- Live Terminal Event Log -->
+            <div class="cockpit-terminal-log">
+              <div class="log-header">
+                <span><i class="fa-solid fa-terminal"></i> LIVE CLUSTER TELEMETRY FEED</span>
+                <span class="log-indicator"><span class="ping-dot"></span> STREAMING</span>
+              </div>
+              <div class="log-stream" id="radarLogStream">
+                <div class="log-line text-muted">[14:30:02] <span class="text-cyan">k8s-apiserver:</span> All node leases renewed (3 Control Plane, 9 Worker Nodes).</div>
+                <div class="log-line text-muted">[14:30:05] <span class="text-green">argocd-repo-server:</span> GitOps repository in sync with commit 'e32b09a'.</div>
+                <div class="log-line text-muted">[14:30:09] <span class="text-purple">ai-operator:</span> Zero CrashLoopBackOff anomalies detected in past 24 hours.</div>
               </div>
             </div>
           </div>
@@ -963,6 +1128,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="script.js?v=4.0"></script>
 </body>
 </html>
