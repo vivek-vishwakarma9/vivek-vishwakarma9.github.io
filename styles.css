@@ -432,6 +432,32 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.headline-pill-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.tech-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+  transition: var(--transition-smooth);
+}
+
+.tech-pill:hover {
+  border-color: var(--cyan);
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
 .typewriter-container {
   display: inline-flex;
   align-items: center;

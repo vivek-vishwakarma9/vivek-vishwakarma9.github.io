@@ -1,5 +1,5 @@
 /**
- * Vivek Vishwakarma | Executive DevOps Portfolio Scripts
+ * Vivek Vishwakarma | Executive DevSecOps & AI Cloud Portfolio Scripts
  * Interactive CLI, Pipeline Inspector, Typewriter & UX Micro-interactions
  */
 
@@ -49,19 +49,22 @@ function initTypewriter() {
   if (!typewriterEl) return;
 
   const phrases = [
-    'Senior DevOps & Cloud Infrastructure Engineer',
+    'Senior DevSecOps Engineer',
     'Multi-Cloud Architect: Microsoft Azure & AWS',
-    'Kubernetes (AKS / EKS) & Container Orchestrator',
-    'Terraform (IaC 90%) & Automated Cloud Landing Zones',
-    'DevSecOps: Checkmarx, Black Duck & Aqua Hardening',
-    'Zero-Trust Networking, Private Endpoints & VPNs'
+    '🤖 Agentic AI & Autonomous Cloud Ops',
+    '🔁 CI/CD Pipelines with GitHub Actions & ArgoCD',
+    '🏗️ Terraform (IaC 90%) & Zero-Trust Landing Zones',
+    '🐳 Docker, ☸️ Kubernetes & ⎈ Helm 3',
+    '⭕ Oracle Database & 🗄️ SQL Architecture',
+    '🛡️ Checkmarx, Black Duck & Aqua Security Hardening',
+    '🐧 Linux & Shell Scripting (70%)'
   ];
 
   let phraseIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const typeSpeed = 55;
-  const deleteSpeed = 25;
+  const typeSpeed = 50;
+  const deleteSpeed = 22;
   const delayBetweenPhrases = 2200;
 
   function type() {
@@ -156,13 +159,13 @@ function initPipelineInspector() {
       ]
     },
     monitor: {
-      title: 'Stage 06: Full-Stack Observability & SRE Alerting',
-      badge: 'Datadog 24/7 APM Active',
-      desc: 'Live runtime protection and real-time observability powered by Datadog APM, Prometheus, and Grafana. Synthetic monitoring, distributed tracing, and automated alerting on SLO burn rates.',
+      title: 'Stage 06: Full-Stack Observability & Agentic AI SRE',
+      badge: 'Datadog & AI Ops Active',
+      desc: 'Live runtime protection and real-time observability powered by Datadog APM, Prometheus, and Grafana. Agentic AI loops triage alerts and auto-remediate Kubernetes events.',
       checklist: [
         'Datadog APM tracing & anomaly detection',
-        'Prometheus metrics & custom Grafana dashboards',
-        'Automated pager alerts with MTTR < 15 minutes'
+        'Agentic AI automated incident triaging',
+        'Oracle & SQL real-time query metrics & alerts'
       ]
     }
   };
@@ -202,6 +205,7 @@ function initCloudTerminal() {
     help: () => [
       '<span class="text-cyan">Available commands:</span>',
       '  <span class="text-accent">skills</span>           - View breakdown of tech skills & percentages',
+      '  <span class="text-accent">ai-agent</span>         - Run Agentic AI cloud autonomous triage scan',
       '  <span class="text-accent">infra-status</span>     - Check multi-cloud cluster & landing zone status',
       '  <span class="text-accent">terraform plan</span>   - Run simulated Terraform IaC execution plan',
       '  <span class="text-accent">kubectl get pods</span> - View active production microservice pods',
@@ -214,17 +218,31 @@ function initCloudTerminal() {
       '  [Configs]    YAML (Pipelines/K8s)    : 90% [==================--]',
       '  [Scripting]  Linux Shell / Bash       : 70% [==============------]',
       '  [Scripting]  PowerShell Automation   : 65% [=============-------]',
-      '  [Code]       Python Cloud Utilities  : 60% [============--------]',
+      '  [Code]       Python & AI Automation  : 60% [============--------]',
       '  [Cloud]      Microsoft Azure (AKS)   : 92% [==================--]',
       '  [Cloud]      Amazon Web Services AWS : 85% [=================---]',
+      '  [GitOps]     ArgoCD & Helm 3 Charts  : 88% [=================---]',
+      '  [CI/CD]      GitHub Actions & Azure  : 90% [==================--]',
       '  [Security]   Checkmarx, Trivy, Aqua  : 88% [=================---]',
+      '  [AI Ops]     Agentic AI Autonomous   : 82% [================----]',
+      '  [Database]   Oracle Database & SQL   : 85% [=================---]',
       '  [Telemetry]  Datadog APM, Prometheus : 86% [=================---]'
+    ],
+    'ai-agent': () => [
+      '<span class="text-muted">$ vivek-agentic-ai --cluster-audit --self-heal</span>',
+      '<span class="text-purple">[Agentic AI Engine]</span> Initializing autonomous reasoning loop...',
+      '<span class="text-purple">[Agentic AI Engine]</span> Correlating Datadog telemetry + Kubernetes API events...',
+      '<span class="text-green">✔ AKS Pod Health: 100% nominal (Zero restart loops).</span>',
+      '<span class="text-green">✔ Oracle & SQL Latency: &lt; 2.4ms (Cache hit ratio: 99.4%).</span>',
+      '<span class="text-green">✔ Cost Optimization Agent: Reclaimed $420/month on idle compute.</span>',
+      '<span class="text-cyan">Autonomous Triaging Complete: 0 interventions required.</span>'
     ],
     'infra-status': () => [
       '<span class="text-green">✔ Azure Virtual Network Hub-Spoke:</span> ONLINE (VNet-Hub &lt;--&gt; VNet-Spoke Peered)',
       '<span class="text-green">✔ Azure Kubernetes Service (AKS):</span> CLUSTER HEALTHY (Nodes: 3/3 Ready, Private API)',
+      '<span class="text-green">✔ GitOps Engine (ArgoCD & Helm):</span> SYNCHRONIZED (All manifests up-to-date)',
       '<span class="text-green">✔ Point-to-Site VPN Gateway:</span> ACTIVE (OpenVPN / Azure Certificate Auth)',
-      '<span class="text-green">✔ PostgreSQL Flexible Server:</span> CONNECTED (Private Endpoint 10.0.3.4)',
+      '<span class="text-green">✔ Oracle Database & SQL Cluster:</span> CONNECTED (Private Endpoint 10.0.3.4)',
       '<span class="text-green">✔ Key Vault RBAC Secrets:</span> SYNCHRONIZED (Zero public endpoints)',
       '<span class="text-green">✔ Datadog DaemonSet Agents:</span> REPORTING (100% metrics ingested)',
       '<span class="text-cyan">Overall Health: 100% OPTIMAL (Zero Vulnerabilities Detected)</span>'
@@ -246,16 +264,17 @@ function initCloudTerminal() {
       '<span class="text-muted">$ kubectl get pods -n production -o wide</span>',
       'NAME                             READY   STATUS    RESTARTS   AGE    IP            NODE',
       '<span class="text-green">auth-service-7f89d4cb8-x29q1</span>     1/1     Running   0          4d2h   10.244.0.12   aks-agentpool-vmss000',
+      '<span class="text-green">argocd-server-84f9bc-4kl12</span>       1/1     Running   0          18d    10.244.0.15   aks-agentpool-vmss001',
       '<span class="text-green">payment-gateway-69d4cb8-l91zp</span>    1/1     Running   0          4d2h   10.244.0.18   aks-agentpool-vmss001',
       '<span class="text-green">data-processor-58471c-klm20</span>     1/1     Running   0          1d8h   10.244.0.22   aks-agentpool-vmss002',
       '<span class="text-green">datadog-agent-daemonset-4gq9p</span>   1/1     Running   0          14d    10.244.0.2    aks-agentpool-vmss000',
-      '<span class="text-cyan">Total: 4 Pods Running, 0 Crashing, 0 Pending.</span>'
+      '<span class="text-cyan">Total: 5 Pods Running, 0 Crashing, 0 Pending.</span>'
     ],
     contact: () => [
       '<span class="text-cyan">=== Vivek Vishwakarma Contact Details ===</span>',
       '  👤 Name     : Vivek Vishwakarma',
-      '  💼 Title    : Senior DevOps & Cloud Infrastructure Engineer',
-      '  📧 Email    : <a href="mailto:vvekvishwaakrma@gmail.com" class="text-accent">vvekvishwaakrma@gmail.com</a>',
+      '  💼 Title    : Senior DevSecOps Engineer | Azure & AWS | Agentic AI',
+      '  📧 Email    : <a href="mailto:vivekvis321@gmail.com" class="text-accent">vivekvis321@gmail.com</a>',
       '  🔗 LinkedIn : <a href="https://www.linkedin.com/in/vivek-vishwakarma2000/" target="_blank" class="text-accent">linkedin.com/in/vivek-vishwakarma2000</a>',
       '  🐙 GitHub   : <a href="https://github.com/vivek-vishwakarma9" target="_blank" class="text-accent">github.com/vivek-vishwakarma9</a>'
     ],
@@ -272,7 +291,7 @@ function initCloudTerminal() {
     // Append user input line
     const userLine = document.createElement('div');
     userLine.className = 'term-line';
-    userLine.innerHTML = `<span class="term-prompt">vivek@azure-cloud:~$</span> <span class="text-white">${escapeHtml(inputRaw)}</span>`;
+    userLine.innerHTML = `<span class="term-prompt">vivek@devsecops-cloud:~$</span> <span class="text-white">${escapeHtml(inputRaw)}</span>`;
     terminalBody.appendChild(userLine);
 
     if (commands[input]) {
@@ -360,12 +379,12 @@ window.handleContactSubmit = function(event) {
   setTimeout(() => {
     statusEl.innerHTML = `
       <span class="text-green">
-        <i class="fa-solid fa-circle-check"></i> Thank you, ${escapeHtml(name)}! Opening your mail client to send directly to Vivek...
+        <i class="fa-solid fa-circle-check"></i> Thank you, ${escapeHtml(name)}! Opening your email app to reach Vivek directly at vivekvis321@gmail.com...
       </span>
     `;
 
-    // Construct mailto link as fallback
-    const mailtoUrl = `mailto:vvekvishwaakrma@gmail.com?subject=${encodeURIComponent(`[Portfolio Inquiry] ${subject} from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInquiry Type: ${subject}\n\nMessage:\n${message}`)}`;
+    // Construct mailto link
+    const mailtoUrl = `mailto:vivekvis321@gmail.com?subject=${encodeURIComponent(`[DevSecOps Inquiry] ${subject} from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInquiry Type: ${subject}\n\nMessage:\n${message}`)}`;
     
     window.location.href = mailtoUrl;
 
