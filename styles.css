@@ -631,21 +631,21 @@ body {
 }
 
 .badge-top-right {
-  top: -15px;
-  right: -20px;
-  border-color: rgba(0, 120, 212, 0.4);
+  top: 15px;
+  right: -25px;
+  border-color: rgba(139, 92, 246, 0.4);
 }
 
 .badge-bottom-left {
-  bottom: 50px;
-  left: -25px;
+  top: 48%;
+  left: -32px;
   animation-delay: -3s;
   border-color: rgba(50, 108, 229, 0.4);
 }
 
 .badge-bottom-right {
-  bottom: -15px;
-  right: -10px;
+  bottom: 80px;
+  right: -25px;
   animation-delay: -1.5s;
   border-color: rgba(16, 185, 129, 0.4);
 }
@@ -656,12 +656,17 @@ body {
 }
 
 .profile-footer-tag {
-  margin-top: 1rem;
-  padding: 0.6rem 0.8rem;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 12, 22, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .tag-name {
@@ -1468,16 +1473,16 @@ body {
 
   .badge-top-right {
     top: 10px;
-    right: 10px;
+    right: -10px;
   }
 
   .badge-bottom-left {
-    bottom: 40px;
-    left: 10px;
+    top: 45%;
+    left: -12px;
   }
 
   .badge-bottom-right {
-    bottom: 10px;
-    right: 10px;
+    bottom: 75px;
+    right: -12px;
   }
 }
