@@ -636,16 +636,18 @@ body {
   border-color: rgba(139, 92, 246, 0.4);
 }
 
+.badge-mid-left,
 .badge-bottom-left {
-  top: 48%;
+  top: 36%;
   left: -32px;
   animation-delay: -3s;
   border-color: rgba(50, 108, 229, 0.4);
 }
 
+.badge-mid-right,
 .badge-bottom-right {
-  bottom: 80px;
-  right: -25px;
+  top: 66%;
+  right: -28px;
   animation-delay: -1.5s;
   border-color: rgba(16, 185, 129, 0.4);
 }

@@ -19,8 +19,65 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Styles with cache-buster -->
+  <link rel="stylesheet" href="styles.css?v=3.0">
+
+  <style>
+    /* Absolute inline guarantees to prevent any badge overlap */
+    .profile-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+    }
+    .badge-top-right {
+      top: 15px !important;
+      right: -25px !important;
+      bottom: auto !important;
+    }
+    .badge-mid-left {
+      top: 36% !important;
+      left: -32px !important;
+      bottom: auto !important;
+      border-color: rgba(50, 108, 229, 0.5) !important;
+    }
+    .badge-mid-right {
+      top: 66% !important;
+      right: -28px !important;
+      bottom: auto !important;
+      border-color: rgba(16, 185, 129, 0.5) !important;
+    }
+    .profile-footer-tag {
+      margin-top: 1.4rem !important;
+      padding: 0.9rem 1.2rem !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background: rgba(8, 14, 26, 0.95) !important;
+      border-radius: 14px !important;
+      border: 1px solid rgba(0, 242, 254, 0.3) !important;
+      position: relative !important;
+      z-index: 25 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+    }
+    .profile-footer-tag .tag-name {
+      font-size: 1.05rem !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      display: block !important;
+    }
+    .profile-footer-tag .tag-role {
+      font-size: 0.82rem !important;
+      color: #00f2fe !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      display: block !important;
+      margin-top: 0.2rem !important;
+    }
+    @media (max-width: 768px) {
+      .badge-top-right { top: 10px !important; right: -10px !important; }
+      .badge-mid-left { top: 38% !important; left: -10px !important; }
+      .badge-mid-right { top: 68% !important; right: -10px !important; }
+    }
+  </style>
 </head>
 <body>
   <!-- Ambient background glow elements -->
@@ -147,7 +204,7 @@
                 </div>
               </div>
 
-              <div class="profile-badge badge-bottom-left">
+              <div class="profile-badge badge-mid-left">
                 <i class="fa-solid fa-dharmachakra text-k8s"></i>
                 <div>
                   <strong>K8s, ArgoCD & Helm</strong>
@@ -155,7 +212,7 @@
                 </div>
               </div>
 
-              <div class="profile-badge badge-bottom-right">
+              <div class="profile-badge badge-mid-right">
                 <i class="fa-solid fa-shield-halved text-shield"></i>
                 <div>
                   <strong>DevSecOps</strong>
@@ -164,8 +221,13 @@
               </div>
 
               <div class="profile-footer-tag">
-                <span class="tag-name">Vivek Vishwakarma</span>
-                <span class="tag-role">Senior DevSecOps Engineer</span>
+                <div class="tag-info">
+                  <span class="tag-name">Vivek Vishwakarma</span>
+                  <span class="tag-role">Senior DevSecOps Engineer</span>
+                </div>
+                <div class="tag-status-indicator" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: #10b981; font-weight: 600;">
+                  <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></span> Online
+                </div>
               </div>
             </div>
           </div>
