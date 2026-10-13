@@ -50,14 +50,13 @@ function initTypewriter() {
 
   const phrases = [
     'Senior DevSecOps Engineer',
-    'Multi-Cloud Architect: Microsoft Azure & AWS',
-    '🤖 Agentic AI & Autonomous Cloud Ops',
-    '🔁 CI/CD Pipelines with GitHub Actions & ArgoCD',
-    '🏗️ Terraform (IaC 90%) & Zero-Trust Landing Zones',
-    '🐳 Docker, ☸️ Kubernetes & ⎈ Helm 3',
-    '⭕ Oracle Database & 🗄️ SQL Architecture',
-    '🛡️ Checkmarx, Black Duck & Aqua Security Hardening',
-    '🐧 Linux & Shell Scripting (70%)'
+    'End-to-End Cloud Infrastructure Deployment',
+    'Zero-Downtime Deployments (Rolling Updates & Blue-Green)',
+    'Production Troubleshooting: Pod CrashLoop & Outage Triaging',
+    'Disaster Recovery (DR) Specialist: Strict RPO & RTO',
+    'Governance Policies: Azure Policy & Terraform IaC (90%)',
+    'Kubernetes, ArgoCD GitOps, Helm 3 & Agentic AI',
+    'Enterprise Databases: Oracle Database & SQL'
   ];
 
   let phraseIndex = 0;
@@ -139,9 +138,9 @@ function initPipelineInspector() {
       ]
     },
     iac: {
-      title: 'Stage 04: Infrastructure-as-Code (IaC) Guardrails',
-      badge: 'Checkov & OPA Validated',
-      desc: 'Terraform code is parsed using Checkov and tfsec to enforce CIS Azure/AWS benchmarks. Open Policy Agent (OPA) guarantees zero public IPs on databases and mandates encryption-at-rest across storage.',
+      title: 'Stage 04: Infrastructure-as-Code (IaC) Guardrails & Governance',
+      badge: 'Checkov & Azure Policy Validated',
+      desc: 'Terraform code is parsed using Checkov and tfsec to enforce CIS Azure/AWS benchmarks. Azure Policy guarantees zero public IPs on databases, enforces mandatory tags, and mandates encryption-at-rest across storage.',
       checklist: [
         'Checkov static analysis for Terraform templates',
         'Enforce Private Endpoints & NSG default-deny rules',
@@ -151,7 +150,7 @@ function initPipelineInspector() {
     deploy: {
       title: 'Stage 05: GitOps & Zero-Downtime Deployment',
       badge: 'Automated ArgoCD / Helm',
-      desc: 'Continuous delivery orchestrated through ArgoCD and Helm 3 into Private Azure Kubernetes Service (AKS). Canary and blue-green deployments guarantee zero-downtime microservice rollouts.',
+      desc: 'Continuous delivery orchestrated through ArgoCD and Helm 3 into Private Azure Kubernetes Service (AKS). Canary, Rolling Updates, and Blue-Green deployments guarantee zero-downtime microservice rollouts.',
       checklist: [
         'ArgoCD GitOps declarative cluster sync',
         'Pod Disruption Budgets & Horizontal Pod Autoscaling (HPA)',
@@ -159,12 +158,12 @@ function initPipelineInspector() {
       ]
     },
     monitor: {
-      title: 'Stage 06: Full-Stack Observability & Agentic AI SRE',
-      badge: 'Datadog & AI Ops Active',
-      desc: 'Live runtime protection and real-time observability powered by Datadog APM, Prometheus, and Grafana. Agentic AI loops triage alerts and auto-remediate Kubernetes events.',
+      title: 'Stage 06: Full-Stack Observability & Disaster Recovery',
+      badge: 'Datadog & DR Synced',
+      desc: 'Live runtime protection, real-time observability powered by Datadog APM, Prometheus, and Grafana. Continuous cross-region replication guarantees adherence to strict RPO and RTO SLAs.',
       checklist: [
         'Datadog APM tracing & anomaly detection',
-        'Agentic AI automated incident triaging',
+        'Disaster Recovery (RPO < 15m, RTO < 1h)',
         'Oracle & SQL real-time query metrics & alerts'
       ]
     }
@@ -205,12 +204,32 @@ function initCloudTerminal() {
     help: () => [
       '<span class="text-cyan">Available commands:</span>',
       '  <span class="text-accent">skills</span>           - View breakdown of tech skills & percentages',
+      '  <span class="text-accent">troubleshoot</span>     - Simulate production issue triage (Pod crash / 502 / OOM)',
+      '  <span class="text-accent">dr-status</span>        - Check Disaster Recovery metrics & RPO/RTO SLAs',
       '  <span class="text-accent">ai-agent</span>         - Run Agentic AI cloud autonomous triage scan',
       '  <span class="text-accent">infra-status</span>     - Check multi-cloud cluster & landing zone status',
       '  <span class="text-accent">terraform plan</span>   - Run simulated Terraform IaC execution plan',
       '  <span class="text-accent">kubectl get pods</span> - View active production microservice pods',
       '  <span class="text-accent">contact</span>          - View Vivek\'s direct contact channels',
       '  <span class="text-accent">clear</span>            - Clear terminal output screen'
+    ],
+    troubleshoot: () => [
+      '<span class="text-cyan">=== Production Incident Triage Simulation ===</span>',
+      '<span class="text-rose">✖ High Severity Alert:</span> payment-service Pod in CrashLoopBackOff & HTTP 502 Bad Gateway',
+      '<span class="text-yellow">[Step 1: Log Inspection]</span> `kubectl logs --previous`: java.lang.OutOfMemoryError (OOMKilled exit code 137)',
+      '<span class="text-yellow">[Step 2: Ingress & Network]</span> Health probes failing due to memory freeze; traffic unroutable',
+      '<span class="text-cyan">[Step 3: Rapid Remediation]</span> Patch deployment: Memory limit 512Mi -> 1024Mi; tuned initialDelaySeconds',
+      '<span class="text-green">✔ Rolling deployment executed with ZERO DOWNTIME.</span>',
+      '<span class="text-green">✔ All 3/3 replicas running healthy (100% traffic restored in &lt; 8 minutes).</span>'
+    ],
+    'dr-status': () => [
+      '<span class="text-cyan">=== Enterprise Disaster Recovery (DR) Posture ===</span>',
+      '  📍 Primary Site     : Azure East US (Active AKS + Hub-Spoke VNet + DB)',
+      '  📍 Secondary (DR)   : Azure Central US (Warm Standby / Geo-Replicated)',
+      '  ⏱️ RPO (Recovery Point) : &lt; 15 Minutes | <span class="text-green">Achieved: 3.5 Minutes (Continuous Sync)</span>',
+      '  ⏱️ RTO (Recovery Time)  : &lt; 60 Minutes | <span class="text-green">Achieved: 18.2 Minutes (Automated Failover)</span>',
+      '  🛡️ Velero K8s Snapshots : Verified 100% successful daily backups',
+      '<span class="text-green">✔ Business Continuity Status: Fully Compliant with Zero-Data-Loss Standards</span>'
     ],
     skills: () => [
       '<span class="text-cyan">=== Technical Competencies & Language Ratio ===</span>',

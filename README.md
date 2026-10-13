@@ -1,4 +1,4 @@
-# ⚡ Vivek Vishwakarma | Senior DevSecOps Engineer & Cloud Architect
+# ⚡ Vivek Vishwakarma | Senior DevSecOps Engineer
 
 > **Live Portfolio:** [https://vivek-vishwakarma9.github.io](https://vivek-vishwakarma9.github.io)  
 > **Headline:** Senior DevSecOps Engineer | ☁️ Azure & AWS Cloud | 🤖 Agentic AI | 🔁 CI/CD Pipelines | 🧰 Git & GitHub | 🏗️ Terraform | 🐳 Docker | ☸️ Kubernetes | 🐙 ArgoCD | ⎈ Helm | 🚀 GitHub Actions | 🐧 Linux | 🗄️ SQL | ⭕ Oracle Database  
@@ -9,7 +9,7 @@
 ---
 
 ## 🌟 Overview
-Personal portfolio website of **Vivek Vishwakarma**, Senior DevSecOps Engineer & Multi-Cloud Infrastructure Architect. Designed with a cybernetic dark-mode aesthetic, glassmorphism, interactive command-line terminal (`vsh`), dynamic DevSecOps pipeline visualizer, and production enterprise projects.
+Personal portfolio website of **Vivek Vishwakarma**, **Senior DevSecOps Engineer**. Specialized in **end-to-end cloud infrastructure deployment** with strict governance policies (Azure/AWS), **zero-downtime application deployments** (Rolling updates & Blue-Green), solving critical **production-level incidents** (Pod CrashLoopBackOff, deployment failures, app unreachability), and engineering enterprise **Disaster Recovery (DR)** with tight RPO & RTO standards.
 
 ## 🛠️ Tech Stack & Architecture
 - **Multi-Cloud:** Microsoft Azure (AKS, VNet Hub-Spoke, Key Vault RBAC, Private Endpoints) & AWS (EKS, VPC, IAM)
