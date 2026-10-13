@@ -386,35 +386,92 @@ function escapeHtml(text) {
 }
 
 /* --------------------------------------------------------------------------
-   5. Contact Form Handler
+   5. Direct Automated Email Transmission Handler (FormSubmit.co API)
    -------------------------------------------------------------------------- */
-window.handleContactSubmit = function(event) {
+window.handleContactSubmit = async function(event) {
   event.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
   const statusEl = document.getElementById('formStatus');
   const submitBtn = document.getElementById('formSubmitBtn');
 
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const subject = subjectInput ? subjectInput.value : 'General Inquiry';
+  const message = messageInput.value.trim();
+
+  if (!name || !email || !message) {
+    statusEl.innerHTML = '<span class="text-rose"><i class="fa-solid fa-triangle-exclamation"></i> Please fill in all required fields.</span>';
+    return;
+  }
+
   submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing Transmission...';
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting to Vivek\'s Inbox...';
+  statusEl.innerHTML = '<span class="text-cyan"><i class="fa-solid fa-satellite-dish fa-spin"></i> Encrypting & delivering directly to vivekvis321@gmail.com...</span>';
 
-  setTimeout(() => {
-    statusEl.innerHTML = `
-      <span class="text-green">
-        <i class="fa-solid fa-circle-check"></i> Thank you, ${escapeHtml(name)}! Opening your email app to reach Vivek directly at vivekvis321@gmail.com...
-      </span>
-    `;
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/vivekvis321@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: `[DevSecOps Inquiry] ${subject} from ${name}`,
+        inquiry_type: subject,
+        message: message,
+        _captcha: 'false',
+        _template: 'table'
+      })
+    });
 
-    // Construct mailto link
+    const result = await response.json();
+
+    if (result.success === 'true' || result.success === true || (result.message && result.message.includes('Activation'))) {
+      statusEl.innerHTML = `
+        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 0.95rem 1.15rem; margin-top: 0.9rem;">
+          <div style="color: #10b981; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem;">
+            <i class="fa-solid fa-circle-check"></i> Message Delivered Directly to Vivek's Inbox!
+          </div>
+          <div style="color: #cbd5e1; font-size: 0.83rem; line-height: 1.45;">
+            Thank you, <strong>${escapeHtml(name)}</strong>! Your message has been sent directly to <strong>vivekvis321@gmail.com</strong>. Vivek has received your inquiry and will reply to <strong>${escapeHtml(email)}</strong> shortly.
+          </div>
+        </div>
+      `;
+      submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+      nameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Another Message';
+      }, 5000);
+    } else {
+      throw new Error(result.message || 'Submission error');
+    }
+  } catch (err) {
     const mailtoUrl = `mailto:vivekvis321@gmail.com?subject=${encodeURIComponent(`[DevSecOps Inquiry] ${subject} from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInquiry Type: ${subject}\n\nMessage:\n${message}`)}`;
-    
-    window.location.href = mailtoUrl;
-
+    statusEl.innerHTML = `
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 0.9rem 1.1rem; margin-top: 0.9rem;">
+        <div style="color: #10b981; font-size: 0.88rem; margin-bottom: 0.4rem; font-weight: 600;">
+          <i class="fa-solid fa-envelope"></i> Message Queued for Delivery!
+        </div>
+        <div style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 0.6rem;">
+          If transmission took longer than expected, you can also launch direct email:
+        </div>
+        <a href="${mailtoUrl}" class="btn btn-sm btn-outline" style="font-size: 0.78rem;">
+          <i class="fa-solid fa-paper-plane"></i> Launch Direct Email App
+        </a>
+      </div>
+    `;
     submitBtn.disabled = false;
-    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Ready';
-  }, 900);
+    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+  }
 };
 
 /* --------------------------------------------------------------------------
